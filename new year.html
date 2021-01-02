@@ -1,0 +1,195 @@
+<html lang="en"><head>
+
+  <meta charset="UTF-8">
+
+
+  <title>New Years Countdown</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+* {
+  box-sizing: border-box;
+}
+body {
+
+  margin: 0;
+  
+  background: url("https://image.freepik.com/free-vector/happy-new-year-2021-vector-template_96807-172.jpg") ;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  font-family: "Playfair Display", serif;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.countdown-container {
+  display: flex;
+}
+h1 {
+  font-size: 4rem;
+  font-weight: 400;
+  margin-top: -26rem;
+  color: #020;
+}
+.big-text {
+  font-size: 6rem;
+  line-height: 1;
+  margin: 0 2rem;
+  font-weight: 600;
+  color: #020;
+}
+.countdownEl {
+  text-align: center;
+}
+countdownEl span {
+  font-size: 1.5rem;
+}
+</style>
+ <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+ 
+</head>
+
+<body translate="no">
+  <h1></h1>
+    <div class="countdown-container">
+        <div class="countdownEl days-c">
+            <p class="big-text" id="days">0</p>
+            <span>days</span>
+        </div>
+        <div class="countdownEl hours-c">
+            <p class="big-text" id="hours">0</p>
+            <span>hours</span>
+        </div>
+        <div class="countdownEl mins-c">
+            <p class="big-text" id="mins">0</p>
+            <span>mins</span>
+        </div>
+        <div class="countdownEl seconds-c">
+            <p class="big-text" id="seconds">0</p>
+            <span>seconds</span>
+        </div>
+    </div>
+    
+      <script id="rendered-js">
+const daysEl = document.getElementById('days');
+const hoursEl = document.getElementById('hours');
+const minsEL = document.getElementById('mins');
+const secondsEL = document.getElementById('seconds');
+
+const newYears = '1 jan 2022';
+
+function countdown() {
+  const newYearsDate = new Date(newYears);
+  const currentDate = new Date();
+
+  const totalSeconds = (newYearsDate - currentDate) / 1000;
+  const minutes = Math.floor(totalSeconds / 60) % 60;
+  const hours = Math.floor(totalSeconds / 3600) % 24;
+  const days = Math.floor(totalSeconds / 3600 / 24);
+  const seconds = Math.floor(totalSeconds) % 60;
+
+
+  daysEl.innerText = days;
+  hoursEl.innerText = hours;
+  minsEL.innerText = minutes;
+  secondsEL.innerText = seconds;
+
+
+}
+
+
+
+setInterval(countdown, 1000);
+//# sourceURL=pen.js
+    </script>
+ <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/mojs/0.288.1/mo.min.js"></script><div></div>
+<script src="https://cdn.jsdelivr.net/mojs-player/0.43.15/mojs-player.min.js"></script>
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+
+      
+  <script id="rendered-js">
+document.addEventListener("click", event => {
+  bursty(event.pageX, event.pageY);
+});
+
+setInterval(() => randomizedConfetti(), 500);
+
+function bursty(x, y) {
+  const burst = new mojs.Burst({
+    left: 0,
+    top: 0,
+    radius: { 0: 200 },
+    count: 20,
+    degree: 360,
+    children: {
+      fill: { white: "#34E1FF" },
+      duration: 2000 } }).
+
+  tune({
+    x: x,
+    y: y });
+
+
+  burst.replay();
+}
+
+function randomizedConfetti() {
+  let randomX = Math.floor(Math.random() * (document.body.clientWidth - 100) + 0);
+  let randomY = Math.floor(Math.random() * (window.innerHeight - 200) + 0);
+  const burst = new mojs.Burst({
+    left: 0,
+    top: 0,
+    radius: { 0: 200 },
+    count: 20,
+    degree: 360,
+    children: {
+      fill: { white: "#34E1FF" },
+      duration: 2000 } }).
+
+  tune({
+    x: randomX,
+    y: randomY });
+
+
+  burst.replay();
+}
+
+Splitting();
+//# sourceURL=pen.js
+    </script>
+
+  
+
+
+  
+
+  
+
+
+
+
+
+
+
+ 
+</body></html>
